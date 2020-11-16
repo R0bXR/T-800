@@ -7,10 +7,9 @@ import requests
 class fck_bobch():
 
     def __init__(self):
-        self.login = "ustyanov312018@gmail.com"
-        self.pwd = "hunter31"
-        response = requests.get(url='https://lk.sut.ru/cabinet/')
-        self.cookies = response.cookies
+        self.login = str('')
+        self.pwd = str('')
+        self.cookies = None
         self.school_first = self.first_pair_timing()
         self.school_second = self.second_pair_timing()
         self.school_third = self.third_pair_timing()
@@ -69,22 +68,19 @@ class fck_bobch():
         return pair_timelist
 
     def login_to_lk(self):
+        response = requests.get(url='https://lk.sut.ru/cabinet/')
+        self.cookies = response.cookies
         response = requests.post(url='https://lk.sut.ru/cabinet/lib/autentificationok.php',
                                  data={'users': self.login, 'parole': self.pwd},
                                  cookies=self.cookies)
         if '0' in response.text:
             raise Exception('Неверный логин или пароль! Проверьте введенные данные!')
-        else:
-            self.logged_in = True
 
     def start_lession(self):
-        if self.logged_in == False:
-            raise Exception('Не удалось отметиться! Используйте функцию login_to_lk() для авторизации в вашем личном \
-                            кабинете!')
         while True:
             now = datetime.now()
             if now.strftime('%H:%M:00') in self.school_first:
-                self.on_tha_hood()
+                self.on_tha_hood(self.school_second[0])
                 while True:
                     now = datetime.now()
                     if now.strftime('%H:%M:00') in self.school_second:
@@ -121,8 +117,10 @@ class fck_bobch():
 
             if now.strftime('%H:%M:00') in self.school_fifth:
                 self.on_tha_hood()
+                break
 
     def on_tha_hood(self):
+        self.login_to_lk()
         iterator = 0
         while iterator < 10:
             response = requests.get(url='https://lk.sut.ru/cabinet//project/cabinet/forms/raspisanie_bak.php',
@@ -137,6 +135,7 @@ class fck_bobch():
                 response = requests.post(url='https://lk.sut.ru/cabinet//project/cabinet/forms/raspisanie_bak.php',
                                          data={'open': '1', 'rasp': str(id_of_start_lessiion), 'week': str(week_number)},
                                          cookies=self.cookies)
+                print('Я отметился! Ееее, рок!')
                 break
 
 start_fck = fck_bobch()
