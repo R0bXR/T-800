@@ -10,56 +10,16 @@ class fck_bobch():
         self.login = str('')
         self.pwd = str('')
         self.cookies = None
-        self.school_first = self.first_pair_timing()
-        self.school_second = self.second_pair_timing()
-        self.school_third = self.third_pair_timing()
-        self.school_fourth = self.fourth_pair_timing()
-        self.school_fifth = self.fifth_pair_timing()
+        self.school_first = self.pair_timing(9, 00, 10, 35)
+        self.school_second = self.pair_timing(10, 45, 12, 20)
+        self.school_third = self.pair_timing(13, 00, 14, 35)
+        self.school_fourth = self.pair_timing(14, 45, 16, 20)
+        self.school_fifth = self.pair_timing(16, 30, 18, 5)
         self.start_lession()
 
-    def first_pair_timing(self):
-        start_pair = time(9, 00)
-        end_pair = time(10, 35)
-        pair_timelist = []
-        while start_pair != end_pair:
-            pair_timelist.append(str(start_pair))
-            start_pair = datetime.combine(date.today(), start_pair) + timedelta(minutes=1)
-            start_pair = start_pair.time()
-        return pair_timelist
-
-    def second_pair_timing(self):
-        start_pair = time(10, 45)
-        end_pair = time(12, 20)
-        pair_timelist = []
-        while start_pair != end_pair:
-            pair_timelist.append(str(start_pair))
-            start_pair = datetime.combine(date.today(), start_pair) + timedelta(minutes=1)
-            start_pair = start_pair.time()
-        return pair_timelist
-
-    def third_pair_timing(self):
-        start_pair = time(13, 00)
-        end_pair = time(14, 35)
-        pair_timelist = []
-        while start_pair != end_pair:
-            pair_timelist.append(str(start_pair))
-            start_pair = datetime.combine(date.today(), start_pair) + timedelta(minutes=1)
-            start_pair = start_pair.time()
-        return pair_timelist
-
-    def fourth_pair_timing(self):
-        start_pair = time(14, 45)
-        end_pair = time(16, 20)
-        pair_timelist = []
-        while start_pair != end_pair:
-            pair_timelist.append(str(start_pair))
-            start_pair = datetime.combine(date.today(), start_pair) + timedelta(minutes=1)
-            start_pair = start_pair.time()
-        return pair_timelist
-
-    def fifth_pair_timing(self):
-        start_pair = time(16, 30)
-        end_pair = time(18, 5)
+    def pair_timing(self, h_start, min_start, h_stop, min_stop):
+        start_pair = time(h_start, min_start)
+        end_pair = time(h_stop, min_stop)
         pair_timelist = []
         while start_pair != end_pair:
             pair_timelist.append(str(start_pair))
