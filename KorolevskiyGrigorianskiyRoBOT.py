@@ -79,10 +79,10 @@ class fck_bobch():
                 self.on_tha_hood()
                 break
 
-    def on_tha_hood(self):
+    def on_tha_hood(self, time_of_lession):
         self.login_to_lk()
         iterator = 0
-        while iterator < 10:
+        while iterator < 10 and datetime.now().strftime('%H:%M:00') != time_of_lession[-1]:
             response = requests.get(url='https://lk.sut.ru/cabinet//project/cabinet/forms/raspisanie_bak.php',
                                     cookies=self.cookies)
             week_number = re.search('Полное расписание занятий на неделю №(\d*?) ', str(response.text)).group(1)
