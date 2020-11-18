@@ -7,8 +7,8 @@ import requests
 class fck_bobch():
 
     def __init__(self):
-        self.login = str('')
-        self.pwd = str('')
+        self.login = str('gribok1310@mail.ru')
+        self.pwd = str('Grisha1310')
         self.cookies = None
         self.school_first = self.pair_timing(9, 00, 10, 35)
         self.school_second = self.pair_timing(10, 45, 12, 20)
@@ -40,7 +40,7 @@ class fck_bobch():
         while True:
             now = datetime.now()
             if now.strftime('%H:%M:00') in self.school_first:
-                self.on_tha_hood(self.school_second[0])
+                self.on_tha_hood(self.school_first)
                 while True:
                     now = datetime.now()
                     if now.strftime('%H:%M:00') in self.school_second:
@@ -49,7 +49,7 @@ class fck_bobch():
                         wait.sleep(60)
 
             if now.strftime('%H:%M:00') in self.school_second:
-                self.on_tha_hood()
+                self.on_tha_hood(self.school_second)
                 while True:
                     now = datetime.now()
                     if now.strftime('%H:%M:00') in self.school_third:
@@ -58,7 +58,7 @@ class fck_bobch():
                         wait.sleep(60)
 
             if now.strftime('%H:%M:00') in self.school_third:
-                self.on_tha_hood()
+                self.on_tha_hood(self.school_third)
                 while True:
                     now = datetime.now()
                     if now.strftime('%H:%M:00') in self.school_fourth:
@@ -67,7 +67,7 @@ class fck_bobch():
                         wait.sleep(60)
 
             if now.strftime('%H:%M:00') in self.school_fourth:
-                self.on_tha_hood()
+                self.on_tha_hood(self.school_fourth)
                 while True:
                     now = datetime.now()
                     if now.strftime('%H:%M:00') in self.school_fifth:
@@ -76,7 +76,7 @@ class fck_bobch():
                         wait.sleep(60)
 
             if now.strftime('%H:%M:00') in self.school_fifth:
-                self.on_tha_hood()
+                self.on_tha_hood(self.school_fifth)
                 break
 
     def on_tha_hood(self, time_of_lession):
