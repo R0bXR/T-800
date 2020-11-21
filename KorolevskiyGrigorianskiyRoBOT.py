@@ -7,8 +7,8 @@ import requests
 class fck_bobch():
 
     def __init__(self):
-        self.login = str('gribok1310@mail.ru')
-        self.pwd = str('Grisha1310')
+        self.login = str('')
+        self.pwd = str('')
         self.cookies = None
         self.school_first = self.pair_timing(9, 00, 10, 35)
         self.school_second = self.pair_timing(10, 45, 12, 20)
