@@ -1,6 +1,5 @@
 from datetime import date, datetime, time, timedelta
 import time as wait
-from tkinter import *
 import requests
 
 
