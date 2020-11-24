@@ -1,2 +1,0 @@
-pushd 
-start python KorolevskiyGrigorianskiyRoBOT.py
