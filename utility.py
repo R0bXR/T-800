@@ -4,6 +4,7 @@ import requests
 import re
 import sys
 import daemon
+import argparse
 
 SUCCESS         =  0
 COOKIE_ERROR    = -1
@@ -31,3 +32,11 @@ def con_log_error(message: str):
 
 def con_log_info(message: str):
         print("[INFO] " + message)
+
+def get_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("login", help="email used for logging in to lk.sut")
+    parser.add_argument("password", help="password used for logging in to lk.sut")
+    parser.add_argument("-d", help="Start bot as a daemon", action="store_true")
+    args = parser.parse_args()
+    return args
