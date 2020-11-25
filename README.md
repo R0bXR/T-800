@@ -16,36 +16,25 @@ pip3 install -r requirements.txt
 ------
 Для Linux/WSL
 ```
-./KorolevskiyGrigorianskiyRoBOT.py <login> <password>
+./main.py <login> <password>
 ```
-Опционально возможен запуск в виде скрытого приложения:
 
-```
-./KorolevskiyGrigorianskiyRoBOT.py <login> <password> -d
-```
 Для Windows
 ```
-python3 KorolevskiyGrigorianskiyRoBOT.py <login> <password>
+python3 main.py <login> <password>
 ```
-или
-```
-python3 KorolevskiyGrigorianskiyRoBOT.py <login> <password> -d
-```
-Автоматический запуск при включении компьютера
-----------------------------------------------------------
-Для Windows:
-Необходимо отредактировать файл script.cmd:
 
-```batch
-pushd PATH/TO/PyFILE
-start python3 KorolevskiyGrigorianskiyRoBOT.py
+Опционально возможен запуск в фоновом режиме:
+
+Для Linux/WSL
 ```
-С помощью `WIN+R` открыть "Выполнить" и вписать команду `shell:startup`.
-Поместить скрипт в открывшуюся папку и включить автозапуск скрипта.
+./main.py <login> <password> -d
+```
 
-Для Linux:
-
-См. crontab
+Для Windows
+```
+python3 main.py <login> <password> -d
+```
 
 Авторы
 ------
