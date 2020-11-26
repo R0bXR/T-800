@@ -3,8 +3,8 @@ import time as wait
 import requests
 import re
 import sys
-import daemon
 import argparse
+import platform
 
 SUCCESS         =  0
 COOKIE_ERROR    = -1
@@ -32,6 +32,9 @@ def con_log_error(message: str):
 
 def con_log_info(message: str):
         print("[INFO] " + message)
+
+def con_log_warn(message: str):
+        print("[WARN] " + message)
 
 def get_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()

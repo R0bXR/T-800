@@ -11,7 +11,7 @@ class presence_marker():
         self.school_third_m = self.pair_timing(13, 00, 14, 35)
         self.school_fourth_m = self.pair_timing(14, 45, 16, 20)
         self.school_fifth_m = self.pair_timing(16, 30, 18, 5)
-        self.start_lession()
+        self.start_lesson()
 
     def pair_timing(self, h_start: int, min_start: int, h_stop: int, min_stop: int) -> list:
         file_log_info("Setting time for lessons")
@@ -42,7 +42,7 @@ class presence_marker():
         file_log_info("Access granted")
         
 
-    def start_lession(self):
+    def start_lesson(self):
         while True:
             now = datetime.now()
             if now.strftime('%H:%M:00') in self.school_first_m:
